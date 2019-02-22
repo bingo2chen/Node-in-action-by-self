@@ -8,6 +8,8 @@ const nunjucks = require('nunjucks');
 const entries = require('./routes/entries');
 const usersRouter = require('./routes/users');
 
+const validate = require('./middleware/validate');
+
 const app = express();
 
 // view engine setup
