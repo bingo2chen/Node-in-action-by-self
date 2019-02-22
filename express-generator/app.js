@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nunjucks = require('nunjucks');
+const resError = require('res-error')
 
 const entries = require('./routes/entries');
 const usersRouter = require('./routes/users');
@@ -22,6 +23,7 @@ nunjucks.configure('views', {
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(resError);
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -29,7 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.get('/', entries.list);
 app.get('/post', entries.form);
-app.post('/post', entries.submit);
+app.post('/post', 
+  validate.required('entry[title]'),
+  validate.lengthAbove('entry[title]', 4),
+  entries.submit);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
