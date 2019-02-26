@@ -15,6 +15,7 @@ exports.submit = (req, res, next) => {
   const data = req.body.entry;
   const user = res.locals.user;
   const username = user ? user.name : null;
+  console.log(data, user, username)
   const entry = new Entry({
     username: username,
     title: data.title,

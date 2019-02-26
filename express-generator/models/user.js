@@ -20,7 +20,6 @@ class User {
       db.incr('user:ids', (err, id) => {
         if (err) return cb(err);
         this.id = id;
-        console.log(this.id)
         this.hashPassword((err) => {//密码hash
           if (err) return cb(err);
           this.update(cb);
@@ -63,7 +62,7 @@ class User {
   static getByName(name, cb) {
     User.getId(name, (err, id) => { //用名称查找用户ID
       if (err) return cb(err);
-      User.getByName(id, cb); //用ID抓取用户
+      User.get(id, cb); //用ID抓取用户
     });
   }
 

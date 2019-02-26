@@ -34,8 +34,7 @@ exports.lengthAbove = (field, len) => {
     if (getField(req, field).length > len) {
       next();
     } else {
-      const field = field.join(' ');
-      res.error(`${field} must have more than ${len} characters`);
+      res.error(`${field.join(' ')} must have more than ${len} characters`);
       res.redirect('back');
     }
   };
