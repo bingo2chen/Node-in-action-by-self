@@ -1,15 +1,6 @@
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-
-<body>
-  {% block menu %} {% endblock %}
+{% extends "layout.nj" %}
+{% block content %}
+{% block menu %}{% endblock %}
   <h1>
     {{ title }} 
   </h1>
@@ -26,6 +17,5 @@
       <input type='submit' value='Sign Up' />
     </p>
   </form>
-</body>
-</html>
+{% endblock %}
   
