@@ -1,7 +1,6 @@
-{% if (locals.user) %}
+{% if (user) %}
 <div id='menu'>
-  <span class='name'>
-    {{user.name}} </span>
+<span class='name'>{{user.name|dump}} </span>
   <a href='/post'>post</a>
   <a href='/logout'>logout</a>
 </div>

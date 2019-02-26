@@ -1,6 +1,5 @@
 {% extends "layout.nj" %}
 {% block content %}
-{% include "menu.nj" %}
   {% for entry in entries %}
     <div class='entry'>
       <h3>

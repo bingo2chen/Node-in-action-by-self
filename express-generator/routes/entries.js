@@ -4,9 +4,12 @@ const Entry = require('../models/entry');
 exports.list = (req, res, next) => {
   Entry.getRange(0, -1, (err, entries) => {
     if (err) return next(err);
+    console.log(res.locals.user,222222);
+    
     res.render('entries', {
       title: 'Entries',
-      entries: entries
+      entries: entries,
+      user: res.locals.user
     });
   });
 };
@@ -29,6 +32,7 @@ exports.submit = (req, res, next) => {
 
 exports.form = (req, res) => {
   res.render('post', {
-    title: 'Post'
+    title: 'Post',
+    user: res.locals.user
   });
 };

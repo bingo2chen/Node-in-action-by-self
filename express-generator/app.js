@@ -48,7 +48,7 @@ app.post('/register', register.submit);
 //登录
 app.get('/login', login.form);
 app.post('/login', login.submit);
-app.get('/login', login.logout);
+app.get('/logout', login.logout);
 
 
 // catch 404 and forward to error handler

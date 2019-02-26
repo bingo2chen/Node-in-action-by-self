@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 <body>
-  {% block content %}{% endblock %}
+  {% include "menu.nj" %}
+  {% block content %}
+    content in there.
+  {% endblock %}
 </body>
 </html>
