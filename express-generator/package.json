@@ -15,7 +15,7 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "nunjucks": "^3.1.7",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "res-error": "^0.3.1"
   }
 }
